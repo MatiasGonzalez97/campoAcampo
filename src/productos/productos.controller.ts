@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { ProductosService } from './productos.service';
 import { Producto } from './entities/producto.entity';
+import { CreateProductoDto } from './dto/create-producto.dto';
 
 @Controller('productos')
 export class ProductosController {
@@ -26,7 +27,7 @@ export class ProductosController {
   }
 
   @Post()
-  create(@Body() body: Partial<Producto>): Promise<Producto> {
+  create(@Body() body: CreateProductoDto): Promise<Producto> {
     return this.productosService.create(body);
   }
 
