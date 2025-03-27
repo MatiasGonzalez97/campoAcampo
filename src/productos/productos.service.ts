@@ -13,7 +13,6 @@ export class ProductosService {
 
   async findAll(): Promise<Producto[]> {
     const products = await this.productoRepo.find();
-    console.log(products);
     return products;
   }
 
