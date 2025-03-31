@@ -22,12 +22,14 @@ services:
       retries: 10
 
   nest-app:
-    build: .
+    build: 
+      context: backend
+      dockerfile: Dockerfile
     container_name: nest-ganaderia
     ports:
       - '5000:5000'
     env_file:
-      - .env
+      - /backend/.env
     depends_on:
       mysql:
         condition: service_healthy
