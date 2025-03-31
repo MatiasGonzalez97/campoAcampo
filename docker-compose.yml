@@ -36,6 +36,18 @@ services:
     networks:
       - ganaderia-net
 
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    container_name: react-ganaderia
+    ports:
+      - '3000:80'
+    networks:
+      - ganaderia-net
+    depends_on:
+      - nest-app
+
 volumes:
   mysql-data:
 
